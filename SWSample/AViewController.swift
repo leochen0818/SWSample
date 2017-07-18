@@ -38,8 +38,11 @@ class AViewController: UIViewController, BVCDelegate {
     }
     
     func changeToC() {
+        let ncc = getViewControllerWith(sbId: "NavigationControllerC") as! UINavigationController
         let vc = getViewControllerWith(sbId: "CViewController")
-        self.revealViewController().setFront(vc, animated: true)
+        
+        ncc.setViewControllers([vc], animated: false)
+        self.revealViewController().setFront(ncc, animated: true)
     }
     
     @IBAction func btnDidClick(_ sender: UIButton) {

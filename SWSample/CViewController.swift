@@ -29,8 +29,12 @@ class CViewController: UIViewController {
     }
     
     @IBAction func btnClick(_ sender: UIButton) {
-        let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AViewController")
-        self.revealViewController().setFront(vc, animated: true)
+        let sb = UIStoryboard.init(name: "Main", bundle: nil)
+        let ncc = sb.instantiateViewController(withIdentifier: "NavigationControllerA") as! UINavigationController
+        let vc = sb.instantiateViewController(withIdentifier: "AViewController");
+        
+        ncc.setViewControllers([vc], animated: false)
+        self.revealViewController().setFront(ncc, animated: true)
     }
 
     /*
